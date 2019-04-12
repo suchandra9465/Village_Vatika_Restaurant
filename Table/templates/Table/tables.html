@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Reservations{% endblock %}
+{% block body_block %}
+  <p></p>
+  <p></p>
+<div class="container">
+    <h3> Table Reservations</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Total Guests</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booktable in query1 %}
+        <tr>
+          <th scope="row">{{ booktable.customer }}</th>
+          <td>{{ booktable.total_persons }}</td>
+          <td>{{ booktable.date }}</td>
+          <td>{{ booktable.time }}</td>
+          <td>{{ booktable.contact }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+  <p></p>
+  <p></p>
+  <h3> Lawn Reservations</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Total Guests</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booktable in query2 %}
+        <tr>
+          <th scope="row">{{ booktable.customer }}</th>
+          <td>{{ booktable.total_persons }}</td>
+          <td>{{ booktable.date }}</td>
+          <td>{{ booktable.time }}</td>
+          <td>{{ booktable.contact }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block banner_block %}
+<a href="{% url 'Table:book_table' %}" class="primary-btn text-uppercase">Reserve Table</a>
+{% endblock %}
+{% block body_block %}
+<!-- Start home-about Area -->
+<section class="home-about-area section-gap">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 home-about-left">
+        <h1>About Our Story</h1>
+        <p>
+          Who are in extremely love with eco friendly system. Though we commercially exist into the market as a restaurant and
+          hence, we can’t help with actual village image or theme-but we have just
+          made a try with bamboo huts, statues and open grass, which symbolizes
+          some part of village.So, Village Vatika is a cultural centre and Indian restaurant for local cuisine set within landscaped gardens.
+        </p>
+        <a href="{% url 'menu:menu_list' %}" class="primary-btn">view full menu</a>
+      </div>
+      <div class="col-lg-6 home-about-right">
+        <img class="img-fluid" src="{% static 'img/abt.jpeg' %}" alt="image">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End home-about Area -->
+
+<section class="review-area section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="active-review-carusel">
+          {% for rate in ratings %}
+            <div class="single-review">
+              <img src="{% static 'img/customer1.jpg' %}" alt="customer image">
+              <h3 class="text-white">{{ rate.review_by }}</h3>
+              {% if rate.rating|add:0 == 5 %}
+                <h4 class="text-white"><i>Excellent</i></h4>
+              {% elif rate.rating|add:0 == 4 %}
+                <h4 class="text-white"><i>Good</i></h4>
+              {% elif rate.rating|add:0 == 3 %}
+                <h4 class="text-white"><i>Moderate</i></h4>
+              {% elif rate.rating|add:0 == 2 %}
+                <h4 class="text-white"><i>Poor</i></h4>
+              {% elif rate.rating|add:0 == 1 %}
+                <h4 class="text-white"><i>Very Poor</i></h4>
+              {% endif %}
+              <p class="text-white">{{ rate.drop_a_note }}</p>
+          </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End review Area -->
+
+{% endblock %}

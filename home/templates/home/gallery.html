@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block banner_block %}
+<h1 class="text-white">
+  Gallery
+</h1>
+<p class="text-white link-nav"><a href="{% url 'home:home-page' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'home:gallery-page' %}"> Gallery</a></p>
+{% endblock %}
+{% block body_block %}
+<section class="gallery-area section-gap" id="gallery">
+    <div class="container">
+<div class="row d-flex justify-content-center">
+<div class="menu-content pb-70 col-lg-8">
+  <div class="title text-center">
+    <h1 class="mb-10">Food and Customer Gallery</h1>
+    <p>Who are in extremely love with eco friendly system.</p>
+  </div>
+</div>
+</div>
+
+        <ul class="filter-wrap filters col-lg-12 no-padding">
+            <li class="active" data-filter="*">All Images</li>
+            <li data-filter=".breakfast">Tables</li>
+            <li data-filter=".lunch">Lawn</li>
+            <li data-filter=".dinner">Night</li>
+            <!-- <li data-filter=".budget-meal">Budget Meal</li>
+            <li data-filter=".buffet">Buffet</li> -->
+        </ul>
+
+        <div class="filters-content">
+            <div class="row grid">
+                <div class="col-lg-4 col-md-6 col-sm-6 all breakfast">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/table.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all breakfast">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/table01.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all dinner">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/night1.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all dinner">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/night.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all dinner">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/night4.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all lunch">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/lawn.jpeg' %}" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 all lunch">
+                  <div class="single-gallery">
+                    <img class="img-fluid" src="{% static 'img/lawn1.jpeg' %}" alt="">
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

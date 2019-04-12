@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block stylesheet %}
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <!-- <link src="{% static 'js/gmap.js' %}"> -->
+{% endblock %}
+{% block body_block %}
+<section class="contact-page-area section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="map-wrap" style="width:100%; height: 445px;">
+        <iframe width="100%" height="450px" frameborder="0"
+ style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ51QhawsqXDkRYawKDDL_wCs&key=AIzaSyCFdoAEs3vgDG3opnaqZiqAZx3W0BgEozg" allowfullscreen>
+</iframe>
+      </div>
+        <div class="col-lg-4 d-flex flex-column address-wrap">
+          <div class="single-contact-address d-flex flex-row">
+            <div class="icon">
+              <span class="lnr lnr-home"></span>
+            </div>
+            <div class="contact-details">
+              <h5>Koba-Gandhinagar Highway, Gandhinagar</h5>
+                <p>
+                Plot 32, Near Raisan Petrol Pump
+                </p>
+              </div>
+            </div>
+            <div class="single-contact-address d-flex flex-row">
+              <div class="icon">
+                <span class="lnr lnr-phone-handset"></span>
+              </div>
+              <div class="contact-details">
+                <h5>090330 88025</h5>
+                <p>Mon to Fri 9am to 6 pm</p>
+              </div>
+            </div>
+            <div class="single-contact-address d-flex flex-row">
+              <div class="icon">
+                <span class="lnr lnr-envelope"></span>
+              </div>
+              <div class="contact-details">
+                <h5>support@villagevatika.com</h5>
+                <p>Send us your query anytime!</p>
+              </div>
+            </div>
+      </div>
+      <div class="col-lg-8">
+        <form class="form-area contact-form text-right" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-6 form-group">
+              <div class="fieldWrapper">
+                  {{ form.name.errors }}
+                  {{ form.name }}
+                  {% if form.name.help_text %}
+                  <p class="help">{{ form.name.help_text|safe }}</p>
+                  {% endif %}
+              </div>
+              <div class="fieldWrapper">
+                  {{ form.email.errors }}
+                  {{ form.email }}
+                  {% if form.email.help_text %}
+                  <p class="help">{{ form.email.help_text|safe }}</p>
+                  {% endif %}
+              </div>
+              <div class="fieldWrapper">
+                  {{ form.contact.errors }}
+                  {{ form.contact }}
+                  {% if form.contact.help_text %}
+                  <p class="help">{{ form.contact.help_text|safe }}</p>
+                  {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-6 form-group">
+              <div class="fieldWrapper">
+                  {{ form.message.errors }}
+                  {{ form.message }}
+                  {% if form.message.help_text %}
+                  <p class="help">{{ form.message.help_text|safe }}</p>
+                  {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="alert-msg" style="text-align: left;"></div>
+              <button type ="submit" class="genric-btn primary" style="float: right;">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFdoAEs3vgDG3opnaqZiqAZx3W0BgEozg&callback=init"
+    async defer></script>
+<!-- End contact-page Area -->
+{% endblock %}

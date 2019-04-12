@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Reserve Table{% endblock %}
+{% block banner_block %}
+<h1 class="text-white">
+  Reserve Table
+</h1>
+<p class="text-white link-nav"><a href="{% url 'home:home-page' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'Table:book_table' %}"> Reserve Table</a></p>
+{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $( ".datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "1900:2018",
+        });
+      });
+    </script>
+{% endblock %}
+{% block body_block %}
+<section class="reservation-area section-gap relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-6 reservation-left">
+        <h1 class="text-white">Reserve Your Seats
+        to Confirm if You Come
+        with Your Family</h1>
+        <p class="text-white pt-20">
+          <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. -->
+        </p>
+      </div>
+      <div class="col-lg-5 reservation-right">
+        <form class="form-wrap text-center" method="post">
+          {% csrf_token %}
+          <!-- {{ form|crispy }} -->
+          {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field }}
+                {% if field.help_text %}
+                  <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+          {% endfor %}
+          <button class="primary-btn text-uppercase mt-20">Make Reservation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

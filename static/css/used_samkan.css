@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'SAMAN';
+  src: url('../fonts/SAMAN.ttf');
+}
+.vv_style{
+  font-family: 'SAMAN';
+  font-size: 3em;
+}
